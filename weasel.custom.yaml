@@ -1,0 +1,45 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.15.0.0
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Mon Jun 19 18:45:42 2023"
+  rime_version: 1.8.5
+patch:
+  style/+:
+    horizontal: true
+    inline_preedit: true
+    color_scheme: win10
+    font_face: "Segoe UI Emoji,Microsoft YaHei,霞鹜文楷"
+    font_point: 13
+    label_font_point: 9
+    label_format: "%s"
+    layout:
+      border_width: 1
+      border_height: 1
+      round_corner: 0
+      corner_radius: 0
+      min_width: 160
+      min_height: 0
+      margin_x: 0
+      margin_y: 0
+      spacing: 10
+      candidate_spacing: 24
+      shadow_radius: 0
+      hilite_spacing: 2
+      hilite_padding: 10
+
+  preset_color_schemes:
+    win10:
+      name: Win10
+      text_color: 0
+      back_color: 16777215
+      border_color: 11625216
+      label_color: 8618883
+      hilited_text_color: 0
+      hilited_back_color: 16777215
+      candidate_text_color: 0
+      comment_text_color: 0
+      hilited_candidate_text_color: 16777215
+      hilited_comment_text_color: 16777215
+      hilited_candidate_back_color: 11625216
+      hilited_label_color: 16777215

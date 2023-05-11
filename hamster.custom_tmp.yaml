@@ -1,0 +1,40 @@
+# patch of hamster.yaml
+patch:
+  # ↓通用配置   以下开关 → （true）为开｜（false）为关
+  general:
+    enableAppleCloud: true                   # iCloud同步
+    regexOnCopyFile:
+    - ^.*installation\.yaml$,^.*[.]userdb.*$,^.*build.*$,^.*SharedSupport.*$,^.*[.]bin$,^user.yaml$
+    textEditorLineWrappingEnabled: true      # 内置文本编辑器参数: 是否自动换行
+  
+  # ↓工具栏
+  toolbar: 
+    enableToolbar: true                      # 是否开启工具栏
+    displayAppIconButton: true               # 显示应用图标 icon按钮
+    displayKeyboardDismissButton: true       # 显示键盘收起图标
+    heightOfToolbar: 60                      # 工具栏总高度
+    heightOfCodingArea: 20                   # 拼写区高度(剩余高度由候选文字占用)
+    codingAreaFontSize: 15                   # 拼写区字体大小
+    candidateLabelFontSize: 12               # 候选文字索引字体大小
+    candidateTextFontSize: 19                # 候选文字字体大小
+    candidateCommentFontSize: 12             # 对应 rime 候选字的 comment 信息
+    displayIndexOfCandidate: false           # 显示候选项索引
+    displayCommentOfCandidate: true          # 是否显示候选文字 Comment 信息 
+    swipePaging: true                        # 划动分页开关，默认为 true，
+    # 关闭后为手动分页模式，即通过发送上一页/下一页按键，使 rime 翻页
+
+  # 键盘相关配置
+  keyboard/+:
+    style:
+      fontFace:  # 候选字体
+        - url: "LXGWWenKaiMono-Regular.ttf"
+        - url: "SymbolsNerdFontMono-Regular.ttf"
+    # 使用键盘类型:
+    useKeyboardType: "中文26"
+
+  
+# 自定义键盘布局
+# 布局文档说明文档：https://github.com/imfuxiao/Hamster/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80
+# hamster_keyboards 为引用的键盘文件名称
+keyboards:
+  __include: hamster_keyboards_custom:/keyboards

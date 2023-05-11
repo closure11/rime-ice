@@ -1,0 +1,99 @@
+# squirrel.yaml的自定义配置
+# encoding: utf-8
+
+# 范例:
+
+# ##### 修改单项
+# # 正确 ✅ 这种方式只覆盖 Shift_L，不影响其他选项
+# ascii_composer/switch_key/Shift_L: commit_code
+
+# # 错误 ❌ 这样导致 switch_key 下将只有 Shift_L 一个选项
+# ascii_composer/switch_key:
+#   Shift_L: commit_code
+
+# ##### 如果有较多修改项，可以直接全部复制过来再修改
+# ascii_composer:
+#    good_old_caps_lock: false
+#    switch_key:
+#      Caps_Lock: commit_code
+#      Shift_L: commit_code
+#      Shift_R: noop
+#      Control_L: noop
+#      Control_R: noop
+
+#  ##### 结尾的 /+ 表示在原基础上追加
+#  # 保留已有的快捷键，追加一个逗号句号翻页
+#  key_binder/bindings/+:
+#    - { when: paging, accept: comma, send: Page_Up }
+#    - { when: has_menu, accept: period, send: Page_Down }
+
+# 以 patch: 开头，后面的内容都需要缩进
+patch:
+  # 不显示切换中英时的提示
+  show_notifications_when: never
+  # 选择皮肤，亮色与暗色主题
+  style/color_scheme: macos_light
+  style/color_scheme_dark: macos_dark
+
+  # # 特定App默认中/英文输入 由于我只用Rime输入中文，系统abc输入英文，不能使用这种方式切换
+  # app_options:
+  #   com.apple.Terminal:
+  #     ascii_mode: true
+  #   com.googlecode.iterm2:
+  #     ascii_mode: true
+  #   com.microsoft.VSCode:
+  #     ascii_mode: true
+  #   com.apple.dt.Xcode:
+  #     ascii_mode: true
+  #   com.jetbrains.intellij:
+  #     ascii_mode: true
+  #   com.google.android.studio:
+  #     ascii_mode: true
+
+  preset_color_schemes/macos_light:
+    name: Mac浅色
+    horizontal: true                                    # true横排，false竖排
+    candidate_format: "%c %@ "                          # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+    corner_radius: 5                                    # 窗口圆角
+    hilited_corner_radius: 5                            # 高亮圆角
+    line_spacing: 10                                    # 行间距(适用于竖排)
+    border_height: 4                                    # 窗口上下高度，大于圆角半径才生效
+    border_width: 4                                     # 窗口左右宽度，大于圆角半径才生效
+    font_face: "PingFangSC-Regular,LXGWWenKai-Regular"  # 候选词字体，靠前的优先生效，后置的字体作为显示生僻字的补充
+    font_point: 16                                      # 候选字大小
+    label_font_point: 13                                # 候选编号大小
+    text_color: 0x424242                                # 拼音行文字颜色
+    back_color: 0xFFFFFF                                # 候选条背景色
+    border_color: 0xFFFFFF                              # 边框色
+    label_color: 0x999999                               # 预选栏编号颜色
+    candidate_text_color: 0x3c3c3c                      # 预选项文字颜色
+    comment_text_color: 0x999999                        # 拼音等提示文字颜色
+    hilited_text_color: 0x999999                        # 高亮拼音 (需要开启内嵌编码)
+    hilited_back_color: 0xD75A00                        # 第一候选项背景背景色
+    hilited_candidate_text_color: 0xFFFFFF              # 第一候选项文字颜色
+    hilited_candidate_label_color: 0xFFFFFF             # 第一候选项编号颜色
+    hilited_comment_text_color: 0x999999                # 注解文字高亮
+
+  preset_color_schemes/macos_dark:
+    name: Mac深色
+    horizontal: true                                    # true横排，false竖排
+    candidate_format: "%c %@ "                          # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+    corner_radius: 5                                    # 窗口圆角
+    hilited_corner_radius: 5                            # 高亮圆角
+    line_spacing: 10                                    # 行间距(适用于竖排)
+    border_height: 4                                    # 窗口上下高度，大于圆角半径才生效
+    border_width: 4                                     # 窗口左右宽度，大于圆角半径才生效
+    font_face: "PingFangSC-Regular,LXGWWenKai-Regular"  # 候选词字体，靠前的优先生效，后置的字体作为显示生僻字的补充
+    font_point: 16                                      # 候选字大小
+    label_font_point: 13                                # 候选编号大小
+    text_color: 0x424242                                # 拼音行文字颜色
+    back_color: 0x252a2e                                # 候选条背景色
+    border_color: 0x252a2e                              # 边框色
+    label_color: 0x999999                               # 预选栏编号颜色
+    candidate_text_color: 0xe9e9ea                      # 预选项文字颜色
+    comment_text_color: 0x999999                        # 拼音等提示文字颜色
+    hilited_text_color: 0x999999                        # 高亮拼音 (需要开启内嵌编码)
+    hilited_back_color: 0xD75A00                        # 第一候选项背景背景色
+    hilited_candidate_text_color: 0xFFFFFF              # 第一候选项文字颜色
+    hilited_candidate_label_color: 0xFFFFFF             # 第一候选项编号颜色
+    hilited_comment_text_color: 0x999999                # 注解文字高亮

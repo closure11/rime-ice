@@ -1,0 +1,6 @@
+# double_pinyin_flypy.schema.yaml的patch
+# encoding: utf-8
+
+patch:
+  # 修改词库为rime_ice_my.dict.yaml
+  translator/dictionary: rime_ice_my

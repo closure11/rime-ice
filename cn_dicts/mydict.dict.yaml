@@ -1,0 +1,9 @@
+# mydict.dict.yaml
+
+---
+name: mydict
+version: "2023-08-07"
+sort: by_weight
+...
+霂	mu	1
+丶	dian	1

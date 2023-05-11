@@ -1,0 +1,50 @@
+# default.yaml的自定义配置
+# encoding: utf-8
+
+# 范例:
+
+# ##### 修改单项
+# # 正确 ✅ 这种方式只覆盖 Shift_L，不影响其他选项
+# ascii_composer/switch_key/Shift_L: commit_code
+
+# # 错误 ❌ 这样导致 switch_key 下将只有 Shift_L 一个选项
+# ascii_composer/switch_key:
+#   Shift_L: commit_code
+
+# ##### 如果有较多修改项，可以直接全部复制过来再修改
+# ascii_composer:
+#    good_old_caps_lock: false
+#    switch_key:
+#      Caps_Lock: commit_code
+#      Shift_L: commit_code
+#      Shift_R: noop
+#      Control_L: noop
+#      Control_R: noop
+
+#  ##### 结尾的 /+ 表示在原基础上追加
+#  # 保留已有的快捷键，追加一个逗号句号翻页
+#  key_binder/bindings/+:
+#    - { when: paging, accept: comma, send: Page_Up }
+#    - { when: has_menu, accept: period, send: Page_Down }
+
+# 以 patch: 开头，后面的内容都需要缩进
+patch:
+  # 方案
+  schema_list:
+  - schema: double_pinyin_flypy
+  - schema: rime_ice
+
+  # 候选词个数
+  menu/page_size: 6
+
+  # 中英文切换。只响应大小写切换键，同时在系统设置-键盘-输入法中打开 使用“中/英”键切换“ABC”输入法，
+  # 原生ABC输入法输入英文，rime只输入中文
+  ascii_composer/switch_key:
+    Caps_Lock: commit_code
+    Shift_L: commit_code
+    Shift_R: noop
+    Control_L: noop
+    Control_R: noop
+  
+  recognizer/patterns/+:
+    url_2: "^[A-Za-z]+[.].*"   # 句号不上屏，支持 google.com abc.txt 等网址或文件名，使用句号翻页时需要注释掉
